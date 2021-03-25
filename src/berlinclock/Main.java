@@ -17,7 +17,7 @@ public class Main {
 	String berlinClock(String time) {
 		 Matcher matcher = pattern.matcher(time);
 		 if(! matcher.matches()) return "";
-		 
+		 //commit this
 		 
 		    LocalTime localTime = LocalTime.parse(time, DateTimeFormatter.ofPattern("HH:mm:ss"));
 		    int hour = localTime.get(ChronoField.CLOCK_HOUR_OF_DAY);
@@ -32,7 +32,6 @@ public class Main {
 		    }
 		    
 		   int resMin= minute/five;
-		   
 		   String yellowString="";
 		   String forthRow="";
 		   String firstRow="";
@@ -43,17 +42,16 @@ public class Main {
 			   else yellowString=yellowString+"Y";
 		   
 		   }
-		   
+		   forthRow= padLeftZeros(forthRow, 4);
+
+		    int resHour= hour/five;
 		   yellowString= padLeftZeros(yellowString, 11);
-		   
 		    int remainMin=minute % 5;
 		    for (int i = 0; i < remainMin; i++) {
 		    	forthRow=forthRow+"Y";
 			}
 		    
-		    forthRow= padLeftZeros(forthRow, 4);
-
-		    int resHour= hour/five;
+		    
 		    int secondHour= hour%5;
 		    for (int i = 1; i < resHour+1; i++) {
 				 firstRow=firstRow+"R";
